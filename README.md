@@ -9,7 +9,7 @@ pnpm db:electrify
 
 pnpm client:generate
 
-pnpm client:start
+pnpm start
 
 ```
 
