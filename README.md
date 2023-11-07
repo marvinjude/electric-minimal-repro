@@ -9,6 +9,8 @@ pnpm db:electrify
 
 pnpm client:generate
 
+pnpm client:start
+
 ```
 
 Console Error:
