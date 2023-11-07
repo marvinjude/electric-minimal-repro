@@ -1,0 +1,47 @@
+{
+  "name": "my-app-electric",
+  "version": "0.1.0",
+  "main": "builder.js",
+  "scripts": {
+    "backend:down": "docker compose -f backend/compose/docker-compose.yaml down --volumes",
+    "backend:start": "docker compose --env-file backend/compose/.envrc -f backend/compose/docker-compose.yaml up",
+    "backend:stop": "npm run backend:down",
+    "backend:up": "npm run backend:start --detach",
+    "client:generate": "npx electric-sql generate --proxy \"postgresql://postgres:password@localhost:5432/postgres\"",
+    "client:watch": "npx electric-sql generate --watch",
+    "db:psql": "node ./db/connect.js",
+    "db:migrate": "prisma migrate dev",
+    "db:electrify": "node -r dotenv/config ./db/electrify.js",
+    "build": "node copy-wasm-files.js && node builder.js",
+    "build-prod": "NODE_ENV=production npm run build",
+    "start": "SERVE=true npm run build"
+  },
+  "engines": {
+    "node": ">=16.11.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "electric-sql": "0.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "wa-sqlite": "rhashimoto/wa-sqlite#master",
+    "zod": "3.22.1"
+  },
+  "devDependencies": {
+    "@databases/pg": "^5.4.1",
+    "@electric-sql/prisma-generator": "1.1.0",
+    "@prisma/client": "4.8.1",
+    "@types/node": ">=16.11.0",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.11",
+    "esbuild": "^0.16.17",
+    "esbuild-plugin-inline-image": "^0.0.9",
+    "fs-extra": "^10.0.0",
+    "prisma": "4.8.1",
+    "shelljs": "^0.8.5",
+    "typescript": "^4.4.3"
+  },
+  "prisma": {
+    "schema": "db/prisma/schema.prisma"
+  }
+}
