@@ -1,6 +1,6 @@
-Run scripts:
-
 ```
+pnpm install
+
 pnpm backend:up
 
 pnpm db:migrate
