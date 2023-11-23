@@ -5,13 +5,13 @@ pnpm backend:up
 
 pnpm db:migrate
 
+pnpm db:electrify
+
 pnpm prisma generate
 
 pnpm client:generate
 
 pnpm prisma db seed
-
-pnpm db:electrify
 
 pnpm start
 ```
