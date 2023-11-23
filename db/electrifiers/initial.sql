@@ -1,2 +1,2 @@
 
-CALL electric.electrify('srts');
+CALL electric.electrify('User');
