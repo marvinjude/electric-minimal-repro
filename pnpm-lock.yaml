@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@prisma/client':
+    specifier: 4.8.1
+    version: 4.8.1(prisma@4.8.1)
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -21,8 +24,8 @@ dependencies:
     specifier: rhashimoto/wa-sqlite#master
     version: github.com/rhashimoto/wa-sqlite/7a48dd77b34cf75cddf65b9d3fd105be63a214be
   zod:
-    specifier: 3.22.1
-    version: 3.22.1
+    specifier: 3.21.1
+    version: 3.21.1
 
 devDependencies:
   '@databases/pg':
@@ -31,9 +34,6 @@ devDependencies:
   '@electric-sql/prisma-generator':
     specifier: 1.1.0
     version: 1.1.0
-  '@prisma/client':
-    specifier: 4.8.1
-    version: 4.8.1(prisma@4.8.1)
   '@types/node':
     specifier: ^16.11.0
     version: 16.11.0
@@ -195,7 +195,7 @@ packages:
       '@prisma/generator-helper': 4.16.2
       code-block-writer: 11.0.3
       lodash: 4.17.21
-      zod: 3.22.1
+      zod: 3.21.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -608,7 +608,7 @@ packages:
     dependencies:
       '@prisma/engines-version': 4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe
       prisma: 4.8.1
-    dev: true
+    dev: false
 
   /@prisma/debug@4.16.2:
     resolution: {integrity: sha512-7L7WbG0qNNZYgLpsVB8rCHCXEyHFyIycRlRDNwkVfjQmACC2OW6AWCYCbfdjQhkF/t7+S3njj8wAWAocSs+Brw==}
@@ -622,12 +622,11 @@ packages:
 
   /@prisma/engines-version@4.8.0-61.d6e67a83f971b175a593ccc12e15c4a757f93ffe:
     resolution: {integrity: sha512-MHSOSexomRMom8QN4t7bu87wPPD+pa+hW9+71JnVcF3DqyyO/ycCLhRL1we3EojRpZxKvuyGho2REQsMCvxcJw==}
-    dev: true
+    dev: false
 
   /@prisma/engines@4.8.1:
     resolution: {integrity: sha512-93tctjNXcIS+i/e552IO6tqw17sX8liivv8WX9lDMCpEEe3ci+nT9F+1oHtAafqruXLepKF80i/D20Mm+ESlOw==}
     requiresBuild: true
-    dev: true
 
   /@prisma/generator-helper@4.16.2:
     resolution: {integrity: sha512-bMOH7y73Ui7gpQrioFeavMQA+Tf8ksaVf8Nhs9rQNzuSg8SSV6E9baczob0L5KGZTSgYoqnrRxuo03kVJYrnIg==}
@@ -1121,7 +1120,7 @@ packages:
       wa-sqlite: github.com/rhashimoto/wa-sqlite/7a48dd77b34cf75cddf65b9d3fd105be63a214be
       walkjs: 3.2.4
       ws: 8.14.2
-      zod: 3.22.1
+      zod: 3.21.1
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -2007,7 +2006,6 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 4.8.1
-    dev: true
 
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
@@ -2539,8 +2537,8 @@ packages:
       fd-slicer: 1.1.0
     dev: false
 
-  /zod@3.22.1:
-    resolution: {integrity: sha512-+qUhAMl414+Elh+fRNtpU+byrwjDFOS1N7NioLY+tSlcADTx4TkCUua/hxJvxwDXcV4397/nZ420jy4n4+3WUg==}
+  /zod@3.21.1:
+    resolution: {integrity: sha512-+dTu2m6gmCbO9Ahm4ZBDapx2O6ZY9QSPXst2WXjcznPMwf2YNpn3RevLx4KkZp1OPW/ouFcoBtBzFz/LeY69oA==}
 
   github.com/rhashimoto/wa-sqlite/7a48dd77b34cf75cddf65b9d3fd105be63a214be:
     resolution: {tarball: https://codeload.github.com/rhashimoto/wa-sqlite/tar.gz/7a48dd77b34cf75cddf65b9d3fd105be63a214be}

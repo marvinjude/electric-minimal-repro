@@ -33,7 +33,7 @@ async function main() {
   for (const standardRecordType of allStandardRecordTypes) {
     const { id, name, description, slug } = standardRecordType;
 
-    await prisma.sSrt.upsert({
+    await prisma.user.upsert({
       where: { id },
       update: {},
       create: {

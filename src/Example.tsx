@@ -6,7 +6,7 @@ import { ElectricDatabase, electrify } from "electric-sql/wa-sqlite";
 
 import { authToken } from "./auth";
 import { DEBUG_MODE, ELECTRIC_URL } from "./config";
-import { Electric, schema, Srts as Srt } from "./generated/client";
+import { Electric, schema, User } from "./generated/client";
 
 import "./Example.css";
 
@@ -62,12 +62,12 @@ export const Example = () => {
 
 const ExampleComponent = () => {
   const { db } = useElectric()!;
-  const { results } = useLiveQuery(db.srts.liveMany());
+  const { results } = useLiveQuery(db.User.liveMany());
 
   useEffect(() => {
     const syncItems = async () => {
       // Resolves when the shape subscription has been established.
-      const shape = await db.srts.sync();
+      const shape = await db["User"].sync();
 
       // Resolves when the data has been synced into the local database.
       await shape.synced;
@@ -76,13 +76,13 @@ const ExampleComponent = () => {
     syncItems();
   }, []);
 
-  const srts: Srt[] = results ?? [];
+  const srts: User[] = results ?? [];
 
   console.log({ srts });
 
   return (
     <div>
-      {srts.map((item: Srt, index: number) => (
+      {srts.map((item: User, index: number) => (
         <p key={index} className="item">
           {JSON.stringify(item)}
         </p>
