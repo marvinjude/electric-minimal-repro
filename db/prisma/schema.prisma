@@ -7,11 +7,11 @@ datasource db {
   url      = "postgresql://postgres:password@localhost:5432/postgres"
 }
 
-model srt {
+model SSrt {
   id          String @id
   name        String
   description String
   slug        String
 
-  @@map("srts")
+  @@map("ssrts")
 }

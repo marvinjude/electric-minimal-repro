@@ -44,6 +44,6 @@
   },
   "prisma": {
     "schema": "db/prisma/schema.prisma",
-    "seed": "pnpm tsx db/prisma/seed.ts"
+    "seed": "tsx db/prisma/seed.ts"
   }
 }
