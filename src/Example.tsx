@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { makeElectricContext, useLiveQuery } from "electric-sql/react";
 import { genUUID, uniqueTabId } from "electric-sql/util";
@@ -6,7 +6,7 @@ import { ElectricDatabase, electrify } from "electric-sql/wa-sqlite";
 
 import { authToken } from "./auth";
 import { DEBUG_MODE, ELECTRIC_URL } from "./config";
-import { Electric, schema } from "./generated/client";
+import { Electric, schema, Srts as Srt } from "./generated/client";
 
 import "./Example.css";
 
@@ -62,54 +62,31 @@ export const Example = () => {
 
 const ExampleComponent = () => {
   const { db } = useElectric()!;
-  console.log({ db });
-  // const { results } = useLiveQuery(
-  //   db.items.liveMany()
-  // )
+  const { results } = useLiveQuery(db.srts.liveMany());
 
-  // useEffect(() => {
-  //   const syncItems = async () => {
-  //     // Resolves when the shape subscription has been established.
-  //     const shape = await db.items.sync()
+  useEffect(() => {
+    const syncItems = async () => {
+      // Resolves when the shape subscription has been established.
+      const shape = await db.srts.sync();
 
-  //     // Resolves when the data has been synced into the local database.
-  //     await shape.synced
-  //   }
+      // Resolves when the data has been synced into the local database.
+      await shape.synced;
+    };
 
-  //   syncItems()
-  // }, [])
+    syncItems();
+  }, []);
 
-  // const addItem = async () => {
-  //   await db.items.create({
-  //     data: {
-  //       value: genUUID(),
-  //     }
-  //   })
-  // }
+  const srts: Srt[] = results ?? [];
 
-  // const clearItems = async () => {
-  //   await db.items.deleteMany()
-  // }
+  console.log({ srts });
 
-  // const items: Item[] = results ?? []
-
-  return "HEllo";
-
-  // return (
-  //   <div>
-  //     <div className="controls">
-  //       <button className="button" onClick={ addItem }>
-  //         Add
-  //       </button>
-  //       <button className="button" onClick={ clearItems }>
-  //         Clear
-  //       </button>
-  //     </div>
-  //     {items.map((item: Item, index: number) => (
-  //       <p key={ index } className="item">
-  //         <code>{ item.value }</code>
-  //       </p>
-  //     ))}
-  //   </div>
-  // )
+  return (
+    <div>
+      {srts.map((item: Srt, index: number) => (
+        <p key={index} className="item">
+          {JSON.stringify(item)}
+        </p>
+      ))}
+    </div>
+  );
 };
