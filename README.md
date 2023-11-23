@@ -16,6 +16,6 @@ pnpm prisma db seed
 pnpm start
 ```
 
-Expectation: I expect 3 str records to be shown on screen and logged to console
+Expectation: I expect 3 user records to be shown on screen and logged to console
 
-Result: No srt records are logged
+Result: No user records are logged
